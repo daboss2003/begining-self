@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+ html{
+    font-size: 32px;
+ }
+
+ body{
+    min-height: 100vh;
+    padding: 1rem;
+ }
+
+ .row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .square{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-content: center;
+ }
+
+ .square:first-child{
+    background-color: aqua;
+ }
+
+ .square:nth-child(2){
+    background-color: lightgoldenrodyellow;
+ }
+
+ .square:nth-child(3){
+    background-color: dodgerblue;
+ }
+</style>
+<body>
+    <main>
+
+    </main>
+    <script>
+        const initApp = () =>{
+    const ptArry = pascalsTriangle(8);
+    domTriangle(ptArry);
+
+
+}
+
+document.addEventListener("DOMContentLoaded",initApp);
+
+const pascalsTriangle = (rows = 3) =>{
+    if(rows < 3) rows = 3;
+    const stackArray = [];
+    let i = 1;
+    while(i <= rows){
+
+        const rowArray = [];
+        let j = 0;
+        let rowValue;
+        while(j < i){
+            if(!j || j === i - 1){rowValue = 1}
+            else{
+               
+                rowValue = 
+                 (parseInt(stackArray[i - 2][j]) + parseInt(stackArray[i - 2][j - 1]))
+            }
+            rowArray.push(rowValue);
+            j++;
+        }
+        console.log(rowArray)
+        stackArray.push(rowArray);
+        i++;
+    }
+    console.log(stackArray)
+    return stackArray;
+}
+
+const domTriangle = (array) => {
+    const main = document.querySelector('main');
+    array.forEach(subArray => {
+       const row =  buildRow(subArray) ;
+       main.appendChild(row);
+    });
+}
+
+const buildRow = (array) => {
+    const row = document.createElement('div');
+    row.classList.add("row");
+    array.forEach(el =>{
+        const square = document.createElement('div');
+        square.classList.add("square");
+        square.textContent = el;
+        row.append(square);
+
+    })
+
+    return row;
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[build]
+    publish = "dist"
+    functions = "serverless"
+
+[dev]
+    command = "npm start"
+    publish = "dist"
+
+

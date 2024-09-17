@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pramount Bar (The Mount) Salina, Kansas</title>
+    <meta name="description" content="The Paramount Bar (AkA The Pmount) in salinaa, KS, Since 1946! Great food and drinks!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+body{
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    background-color: #b8a581;
+    color: #333;
+}
+
+@media screen  and (min-width: 768px){
+   body{
+    font-size: 22px;
+   } 
+}
+
+
+@media screen  and (min-width: 1024px){
+   body{
+    background-image: url(images\ \(1\).jpeg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   } 
+}
+
+img{
+    display: block;
+}
+
+a, a:visited{
+    color: #f5f5f5;
+    text-decoration: none;
+
+}
+
+a:hover{
+    opacity: 0.8;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}
+
+.dark{
+    background-color: black;
+    color: #f5f5f5;
+}
+.maxwidth{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 50px;
+    box-shadow: 2px 0 5px hsl(0, 0%, 0%);
+}
+
+h1{
+    font-size: 1.75rem;
+}
+
+.bar{
+    display: none;
+}
+
+@media screen and (min-width:768px){
+    .header{
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    h1{
+        margin-left: 10px;
+    }
+
+    .bar{
+        display: inline-block;
+    }
+}
+
+.nav{
+    display: block;
+    position: relative;
+}
+.nav__buger-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    margin: 0 10px;
+    margin-top: -17px;
+   
+}
+
+.nav__buger,
+.nav__buger::before,
+.nav__buger::after{
+    opacity: 1;
+    width: 25px;
+    height: 3px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav__buger::before,
+.nav__buger::after{
+    content: "";
+    position: absolute;
+}
+
+.nav__buger::before{
+    transform: translateY(-8px);
+}
+
+
+.nav__buger::after{
+    transform: translateY(8px);
+}
+
+.nav__buger-btn.open .nav__buger{
+    background: transparent;
+}
+
+.nav__buger-btn.open .nav__buger::before{
+    background: transparent;
+    background-color: #ff0000;
+    transform: rotate(45deg);
+}
+
+.nav__buger-btn.open .nav__buger::after{
+    background: transparent;
+    background-color: #ff0000;
+    transform: rotate(-45deg);
+}
+
+.nav__list{
+    position: absolute;
+    top: 50;
+    left: 0;
+    display: none;
+    width: 100vw;
+    padding: 10px;
+    list-style-type: none;
+    background: #000000;
+    animation: showmenu 0.5s ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes showmenu {
+    0%{
+        transform: scaleY(0);
+    }
+    80%{
+        transform: translateY(1.2);
+    }
+    100%{
+        transform: translateY(1);
+    }
+}
+
+.nav__item{
+    display: block;
+    font-size: 1.75rem;
+    border-bottom: 3px solid #f5f5f5;
+    padding: 20px;
+}
+
+
+.nav__list.open{
+    display: block;
+    margin-top: 10px;
+}
+
+@media  screen and (min-width:768px) {
+    .nav__buger-btn{
+        display: none;
+
+    }
+
+    .nav__list{
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        animation: none;
+    }
+
+    .nav__item{
+        display: inline-block;
+        font-size: 0.85rem;
+        margin-right: 10px;
+        padding: 0;
+    }
+}
+
+h2{
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background: whitesmoke;
+    margin: 10px 0 20px;
+    border: 1px solid #000000;
+}
+
+.menu{
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fdf5e6;
+    border: 1pxx solid hsl(0, 0%, 0%);
+    box-shadow: 2px 2px 10px hwb(0 0% 100%);
+    padding: 0 10px 20px;
+}
+
+.menu__section{
+    scroll-margin-top: 60px;
+    margin: 10px auto 0;
+}
+
+.menu__item-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.menu__items{
+    font-family: "Black Han Sans",sans-serif;
+    font-size: 1.65rem;
+    margin-top: 20px;
+}
+
+.menu__items:first-child{
+    margin-top: 0;
+}
+
+
+.menu__price{
+    color: rgb(8, 199, 8);
+}
+
+.menu__description{
+    margin: 5px 0 10px 10px;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.menu__food-image{
+    width: 100%;
+    max-width: 400px;
+}
+
+.menu__caption{
+    font-size: 1rem;
+    padding: 5px;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+@media  screen and (min-width: 768px) {
+    .menu{
+        background-color: rgba(253, 245, 230, 0.9);
+    }
+
+    .menu__item-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu__item-container > div{
+        width: 45%;
+        flex-grow: 1;
+    }
+
+    .menu__item-container > div:nth-child(odd){
+        margin-right: 10px;
+    }
+
+    .menu__food-image{
+        border-radius: 25px 25px 0 0;
+    }
+
+    .menu__caption{
+        border-radius: 0 0 25px 25px;
+    }
+}
+
+.footer{
+    padding: 10px;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 0 5px hsl(0, 0%, 0%);
+}
+
+</style>
+<body>
+    <header class="header dark maxwidth">
+        <h1><a href="/">The Paramount <span class="bar">Bar</span></a></h1>
+        <nav class="nav">
+            <div class="nav__buger-btn">
+                <div class="nav__buger"></div>
+            </div>
+            <ul class="nav__list">
+                <li class="nav__item center"><a href="#appetizers">Appetizers</a></li>
+                <li class="nav__item center"><a href="#baskets_salads">Baskets &amp; Salads</a></li>
+                <li class="nav__item center"><a href="#sandwiches">Sandwiches</a></li>
+                <li class="nav__item center"><a href="#buns">Buns</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="menu" class="menu">
+        <section id="appetizers" class="menu__section">
+            <h2 class="center">Appetizers</h2>
+            <div class="menu__item-container">
+                <div>
+                    <div class="menu__items center">WINGS <span class="menu__price">$1 each</span></div>
+                    <p class="center">Fried turkey wings are a popular dish made by deep-frying turkey wing segments until they are crispy and golden brown. They are often seasoned with a variety of spices and can be served with dipping sauces for added flavor.</p>
+                </div>
+                <div>
+                    <div class="menu__items center">FRIED DILL PICKLE CHIPS <span class="menu__price">$6</span></div>
+                    <p class="center">Fried dill pickle chips are a tasty snack or appetizer made by coating dill pickle slices in a seasoned batter and deep-frying them until they're crispy and golden. The result is a combination of tangy, briny pickles with a crunchy, savory exterior, often served with a dipping sauce like ranch dressing.
+                    </p>
+                </div>
+                <div>
+                    <figure>
+                        <img src="download.jpeg" alt="wings and basket of fries" class="menu__food-image">
+                        <figcaption class="menu__caption dark center">Wings &amp; Basket of Fries</figcaption>
+                    </figure>
+                </div>
+                <div class="menu__items center">BASKET OF FRIES<span class="menu__price">$4</span></div>
+                <p class="center">Fried green beans are a delicious side dish or appetizer made by coating fresh green beans in a seasoned batter and then deep-frying them until they are crispy and golden brown. They offer a delightful combination of crunchy exterior and tender, flavorful green beans. Often, they are served with dipping sauces or garnished with seasoning to enhance their taste.
+                </p>
+                <div class="menu__items center">FRIED GREEN BEANS<span class="menu__price">$6</span></div>
+                <p class="center">Steak bites are bite-sized pieces of steak, typically seared or cooked to your preferred level of doneness. They are often seasoned with herbs and spices for added flavor and can be served as an appetizer, in salads, or as a main dish. Steak bites are a savory and satisfying way to enjoy the rich taste of steak in smaller portions.</p>
+                <div class="menu__items center">MUSHROOM <span class="menu__price">$6</span></div>
+                <p class="center">Corn, also known as maize, is a cereal grain that is a staple food in many parts of the world. It has large, edible kernels on a cob and is typically yellow or pale in color. Corn can be cooked in various ways, such as boiling, grilling, or roasting, and it's used in a wide range of dishes, from cornbread and tortillas to popcorn and as a source of livestock feed.
+                </p>
+                <div class="menu__items center">STEAK BITES<span class="menu__price">$7</span></div>
+                <p class="center">Steak bites are bite-sized pieces of steak, typically seared or cooked to your preferred level of doneness. They are often seasoned with herbs and spices for added flavor and can be served as an appetizer, in salads, or as a main dish. Steak bites are a savory and satisfying way to enjoy the rich taste of steak in smaller portions.</p>
+                <div class="menu__items center">CHIPS &amp; SALSA<span class="menu__price">$7</span></div>
+                <p class="center">Chips and salsa is a classic and popular snack or appetizer. It consists of tortilla chips, which are thin, crispy, and salted corn chips, served with salsa, a spicy tomato-based sauce. The salsa can vary in spiciness and flavor, and it may include ingredients like tomatoes, onions, chili peppers, cilantro, and lime juice. This combination offers a satisfying contrast of textures and a burst of flavors, making it a favorite in Mexican and Tex-Mex cuisine.</p>
+                <p class="menu__description">
+                    <span class="bold">Note</span>ALL fried items are fried in peanut oil.
+                </p>
+            </div>
+            </div>
+        </section>
+        <section id="baskets_salads" class="menu__section">
+            <h2 class="center">Baskets &amp; Salads</h2>
+            <div class="menu__item-container">
+                <div>
+                    <div class="menu__items center">SALAD <span class="menu__price">$1 each</span></div>
+                    <p class="center">Salad is a versatile dish that typically consists of a mixture of fresh and often raw ingredients, such as vegetables, fruits, greens, and sometimes proteins, dressed with a variety of seasonings or dressings. Salads come in numerous varieties, including garden salads with lettuce and vegetables, Caesar salads with romaine lettuce and croutons, and fruit salads with various fruits. They can be simple and healthy or complex and hearty, making them a popular choice for appetizers, side dishes, or main courses, and they often reflect regional and personal preferences in ingredients and flavors.</p>
+                </div>
+                <div>
+                    <div class="menu__items center">MIXED SALAD<span class="menu__price">$6</span></div>
+                    <p class="center">A mixed salad is a diverse and colorful dish made by combining an assortment of fresh ingredients from various food groups. It typically includes a mix of different greens, such as lettuce, spinach, or arugula, along with a variety of vegetables like tomatoes, cucumbers, bell peppers, and carrots. Mixed salads may also incorporate additional elements like olives, cheese, croutons, nuts, and proteins such as grilled chicken, shrimp, or hard-boiled eggs.</p>
+                </div>
+                <div>
+                    <div class="menu__items center">CORN &amp; KIDNEY BEANS <span class="menu__price">$6</span></div>
+                    <p class="center">The beauty of mixed salads lies in their versatility and the potential to customize them to your taste. They can be dressed with a wide range of salad dressings, from vinaigrettes to creamy dressings, depending on your preference. Mixed salads are known for their freshness, vibrant colors, and the ability to provide a balanced combination of flavors and textures. They are often served as side dishes or as a light and nutritious meal on their own.</p>
+                </div>
+                <div>
+                    <figure>
+                        <img src="images.jpeg" alt="salads and basket of fries" class="menu__food-image">
+                        <figcaption class="menu__caption dark center">Fish &amp; Basket of Salads</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <div class="menu__items center">AVOCADO<span class="menu__price">$6</span></div>
+                    <p class="center">**Corn and Kidney Bean Salad:** This salad typically includes cooked corn kernels and kidney beans, both canned or fresh, mixed with a variety of colorful vegetables like bell peppers, red onions, and tomatoes. The salad can be seasoned with herbs and spices and dressed with vinaigrette or a zesty dressing for added flavor. It offers a delightful contrast between the sweetness of corn and the creamy, earthy texture of kidney beans, making it a satisfying and nutritious dish. It's great for picnics, barbecues, or as a side dish for various meals.
+                    </p>
+                </div>
+                <div>
+                    <figure>
+                        <img src="images (2).jpeg" alt="salads and basket of fries" class="menu__food-image">
+                        <figcaption class="menu__caption dark center">Salads &amp; Basket of Salads</figcaption>
+                    </figure>
+                </div>
+                <div class="menu__items center">GARDEN SALADS<span class="menu__price">$4</span></div>
+                <p class="center">**Avocado:** Avocado is a pear-shaped fruit with green or blackish skin, depending on its ripeness. It has a soft, pale green or yellowish flesh that is often used in a variety of culinary applications. Avocado is celebrated for its health benefits, as it is high in heart-healthy monounsaturated fats, vitamins, and minerals. It's commonly sliced or mashed and used in dishes like guacamole, salads, sandwiches, and as a topping for various foods. Avocado is a popular ingredient in both savory and sweet dishes and is prized for its mild, nutty flavor and creamy texture.</p>
+                <div class="menu__items center">CAESER SALADS<span class="menu__price">$6</span></div>
+                <p class="center">**Garden Salad:** This salad is typically made with a base of leafy greens such as lettuce, spinach, arugula, or mixed greens. It's complemented by an assortment of fresh vegetables like tomatoes, cucumbers, bell peppers, carrots, and red onions. Garden salads can also include elements like croutons, olives, and grated cheese for added texture and flavor. The dressing for a garden salad can vary, from simple vinaigrettes to creamy dressings like ranch or Caesar. This type of salad is known for its simplicity, versatility, and ability to serve as a fresh and healthy side dish, often accompanying a wide range of main courses.
+                </p>
+                <div class="menu__items center">GREEK SALADS <span class="menu__price">$6</span></div>
+                <p class="center">**Caesar Salad:** A Caesar salad typically consists of crisp romaine lettuce leaves, croutons (toasted or fried bread cubes), and grated or shaved Parmesan cheese. The key feature of a Caesar salad is its rich and creamy Caesar dressing, made with ingredients like olive oil, garlic, anchovies, Dijon mustard, and egg yolk, which gives it a distinctive flavor. It's often garnished with a lemon wedge, which can be squeezed over the salad for a hint of citrus. Many variations include grilled chicken or shrimp as a protein addition. Caesar salad is known for its savory, tangy, and slightly salty taste, making it a favorite choice at restaurants and for home dining.</p>
+                <div class="menu__items center">COBB SALADS<span class="menu__price">$7</span></div>
+                <p class="center">**Greek Salad:** A Greek salad features a fresh and colorful combination of ingredients. It typically includes chunks of ripe tomatoes, cucumber slices, red onion, and green bell peppers. One of the signature components is crumbled feta cheese, which adds a creamy and tangy element. Kalamata olives and capers provide a briny flavor, and it's often seasoned with dried oregano. Greek salad is generously drizzled with extra-virgin olive oil and occasionally with red wine vinegar, adding a delightful dressing. Variations may also include ingredients like fresh oregano leaves, lettuce, or even grilled chicken. It's a refreshing and healthy salad, celebrated for its Mediterranean flavors and textures.</p>
+                <div class="menu__items center">WALDORF SALAD<span class="menu__price">$7</span></div>
+                <p class="center">**Cobb Salad:** A Cobb salad typically includes a variety of ingredients neatly arranged on a bed of lettuce. The key components of a Cobb salad are usually grilled or roasted chicken breast, bacon bits, hard-boiled eggs, diced tomatoes, crumbled blue cheese, and avocado slices. These ingredients are often laid out in rows on top of a base of mixed greens, such as romaine lettuce or iceberg lettuce. Cobb salad is sometimes served with a dressing, with ranch or blue cheese dressing being popular choices. It offers a combination of flavors and textures, ranging from savory and creamy to crisp and fresh, making it a satisfying and well-balanced meal.</p>
+                <p class="menu__description">
+                    <span class="bold">Note</span>All Salad Are Fresh
+                </p>
+            </div>
+            </div>
+        </section>
+        <section id="sandwiches" class="menu__section">
+            <h2 class="center">Sandwiches</h2>
+            <div class="menu__item-container">
+                <div>
+                    <div class="menu__items center">CLUB SANDWICH<span class="menu__price">$1 each</span></div>
+                    <p class="center">**Waldorf Salad:** A Waldorf salad typically consists of fresh apples, celery, and walnuts, all diced into small pieces and mixed together. The ingredients are dressed in mayonnaise and occasionally with lemon juice or yogurt, which gives the salad a sweet and creamy texture. Some variations may include grapes or raisins for an extra burst of sweetness. Waldorf salad is often served on a bed of lettuce or spinach. It's a delightful salad that combines the crisp
+                    </p>
+                </div>
+                <div>
+                    <div class="menu__items center"> GRILLED CHEESE<span class="menu__price">$6</span></div>
+                    <p class="center">A club sandwich is a popular type of sandwich typically made with three slices of toasted bread, usually white or wheat. The sandwich typically includes layers of ingredients such as sliced turkey or chicken, crispy bacon, lettuce, tomato, and mayonnaise. It is often cut into quarters and held together with toothpicks. Some variations may include additional ingredients like cheese, avocado, or a fried egg. The club sandwich is known for its layered and visually appealing presentation, making it a classic choice in many cafes and restaurants.
+                    </p>
+                </div>
+                <div>
+                    <div class="menu__items center">REUBEN<span class="menu__price">$6</span></div>
+                    <p class="center">A grilled cheese sandwich is a classic comfort food made by placing cheese between slices of bread and grilling or toasting it until the bread becomes golden brown and the cheese melts. It's a simple yet delicious sandwich that often includes variations like using different types of cheese, adding ingredients such as tomato, bacon, or ham, and sometimes spreading butter or mayonnaise on the outside of the bread to enhance the crispiness. Grilled cheese sandwiches are a popular and easy-to-make option enjoyed by people of all ages.
+                    </p>
+                </div>
+                <div>
+                    <div class="menu__items center">PEANUT BUTTER AND JELLY<span class="menu__price">$6</span></div>
+                    <p class="center">A Reuben sandwich is a popular deli classic that consists of the following key ingredients:
+
+                        1. Corned Beef: Thinly sliced, seasoned, and often brine-cured beef.
+                        
+                        2. Swiss Cheese: Melted Swiss cheese is typically used in a Reuben.
+                        
+                        3. Sauerkraut: Fermented cabbage that adds a tangy and crunchy element.
+                        
+                        4. Rye Bread: The sandwich is usually made with rye bread, which can be grilled or toasted for added flavor.
+                        
+                        5. Thousand Island Dressing: This creamy dressing, often used as a condiment, provides a tangy and sweet flavor.
+                        
+                        The Reuben is typically assembled by placing corned beef, Swiss cheese, sauerkraut, and Thousand Island dressing between slices of rye bread. It's then grilled until the bread is crispy and the cheese is melted. The combination of flavors, including the savory meat, the tangy sauerkraut, and the creamy dressing, makes the Reuben a beloved and flavorful sandwich.
+                        </p>
+                </div>
+                <div>
+                    <figure>
+                        <img src="images (1).jpeg" alt="wings and basket of fries" class="menu__food-image">
+                        <figcaption class="menu__caption dark center">Arebien Sandwich &amp; Basket of Fries</figcaption>
+                    </figure>
+                </div>
+                <div class="menu__items center">CUBAN SANDWISH<span class="menu__price">$4</span></div>
+                <p class="center">A peanut butter and jelly (PB&J) sandwich is a simple and beloved sandwich typically made with the following ingredients:
+
+                    1. Peanut Butter: A spread made from ground, roasted peanuts that provides a creamy or crunchy texture.
+                    
+                    2. Jelly or Jam: A fruit-based spread, often in flavors like grape, strawberry, or raspberry.
+                    
+                    3. Bread: Slices of bread, commonly white or whole wheat, serve as the foundation of the sandwich.
+                    
+                    To make a PB&J sandwich, you usually spread peanut butter on one slice of bread and jelly or jam on the other, then press the slices together to create the sandwich. The combination of the nutty, slightly savory flavor of peanut butter with the sweet and fruity taste of jelly or jam makes for a classic and satisfying sandwich enjoyed by people of all ages. It's often a quick and easy option for a snack or lunch.
+                    </p>
+                <div class="menu__items center">CHICKEN SALAD<span class="menu__price">$6</span></div>
+                <p class="center">A Cuban sandwich is a delicious and iconic sandwich that originated in Cuban communities in Florida. It typically includes the following ingredients:
+
+                    1. Cuban Bread: A long, rectangular, and crusty bread that's key to the sandwich.
+                    
+                    2. Roast Pork: Marinated and slow-roasted pork, often seasoned with spices like garlic and citrus.
+                    
+                    3. Ham: Slices of ham provide a salty and savory element.
+                    
+                    4. Swiss Cheese: Melted Swiss cheese adds a creamy and slightly nutty flavor.
+                    
+                    5. Dill Pickles: Thin slices of dill pickles provide a tart and crunchy contrast.
+                    
+                    6. Mustard: Yellow mustard is traditionally used to add a tangy kick.
+                    
+                    The Cuban sandwich is usually assembled by layering the ingredients in the following order: Cuban bread, mustard, roast pork, ham, Swiss cheese, and pickles. The sandwich is then typically pressed and grilled to perfection, creating a warm and crispy exterior with the melted cheese binding the fillings together. It's a harmonious combination of flavors, with the tender, seasoned pork being a standout feature, making the Cuban sandwich a beloved classic.
+                    </p>
+                <div class="menu__items center">EGG SALAD<span class="menu__price">$6</span></div>
+                <p class="center">Chicken salad is a popular dish made by mixing cooked chicken with a variety of ingredients to create a flavorful and creamy salad. The core components of chicken salad typically include:
+
+                    1. Cooked Chicken: Usually, boneless, skinless chicken breasts or thighs are used, which are boiled, roasted, or grilled, then shredded or diced.
+                    
+                    2. Mayonnaise: Mayonnaise is used as a creamy and rich binder for the salad.
+                    
+                    3. Celery: Finely chopped celery adds a fresh and crunchy texture.
+                    
+                    4. Onion: Chopped onions, such as red or green onions, provide a mild, savory flavor.
+                    
+                    5. Seasonings: Common seasonings may include salt, pepper, and sometimes herbs like parsley or dill for added flavor.
+                    
+                    Additional ingredients can vary, and many people like to customize their chicken salad with extras like grapes, apples, pecans, almonds, or even a touch of lemon juice for brightness. Chicken salad can be served in various ways, such as in sandwiches, wraps, or on a bed of lettuce, making it a versatile and satisfying dish.
+                    </p>
+                <div>
+                    <figure>
+                        <img src="download (1).jpeg" alt="salads and basket of fries" class="menu__food-image">
+                        <figcaption class="menu__caption dark center">Sandwiches &amp; Basket of Salads</figcaption>
+                    </figure>
+                </div>
+                <div class="menu__items center">MONTE CRISTO<span class="menu__price">$7</span></div>
+                <p class="center">Egg salad is a classic dish made by combining hard-boiled eggs with various ingredients to create a creamy, flavorful salad. The primary components of egg salad typically include:
+
+                    1. Hard-Boiled Eggs: Eggs are boiled until the yolks are fully set, then peeled and chopped or mashed.
+                    
+                    2. Mayonnaise: Mayonnaise is used as the primary binding agent and to add creaminess to the salad.
+                    
+                    3. Mustard: Often, yellow or Dijon mustard is included for a tangy and slightly spicy flavor.
+                    
+                    4. Seasonings: Common seasonings include salt, pepper, and sometimes paprika or chives for additional flavor.
+                    
+                    Egg salad is a versatile dish, and you can customize it to your liking by adding ingredients like chopped celery, chopped pickles or relish, diced onions, or fresh herbs. It's commonly used as a sandwich filling, served on a bed of lettuce, or used in wraps. Egg salad is a simple and satisfying option for a quick lunch or picnic.
+                    
+                    </p>
+                <div class="menu__items center">BANH MI<span class="menu__price">$7</span></div>
+                <p class="center">A Monte Cristo sandwich, also known as a Monte Cristo ham and cheese sandwich, is a delectable variation of the classic ham and cheese sandwich. It is typically made with the following ingredients:
+
+                    1. Sliced Bread: Two or three slices of white bread are commonly used, and they are often dipped in an egg batter before cooking.
+                    
+                    2. Ham: Slices of ham, usually thinly sliced, are placed between the bread slices.
+                    
+                    3. Cheese: Swiss cheese or another type of cheese is added to provide a creamy and savory element.
+                    
+                    4. Egg Batter: The assembled sandwich is dipped in an egg mixture, similar to French toast, and then pan-fried or deep-fried until golden and crispy.
+                    
+                    5. Powdered Sugar: Some variations of the Monte Cristo are dusted with powdered sugar for a touch of sweetness.
+                    
+                    6. Jam or Jelly: It's often served with fruit preserves or jelly, like raspberry or blackberry, for dipping or spreading.
+                    
+                    The result is a delightful combination of savory and sweet flavors with a crispy exterior and gooey, melted cheese inside. The Monte Cristo is sometimes regarded as a cross between a grilled cheese sandwich and French toast, making it a unique and indulgent treat.
+                    
+                    A Banh Mi is a delicious and popular Vietnamese sandwich that is known for its fusion of flavors and textures. It typically consists of the following components:
+                    
+                    1. Bread: A French baguette, typically light and crispy on the outside with a soft interior, is used as the bread base.</p>
+                <p class="menu__description">
+                    <span class="bold">Note</span> That There Is Alot Of Flavours So Just Make Your 0rder
+                </p>
+            </div>
+            </div>
+        </section>
+        <section id="buns" class="menu__section">
+            <h2 class="center">Buns</h2>
+            <div class="menu__item-container">
+            <div class="menu__items center">CORN &amp; JALAPEND SPICE NUGGETS <span class="menu__price">$6</span></div>
+                    <p class="center">Corn, also known as maize, is a cereal grain that is a staple food in many parts of the world. It has large, edible kernels on a cob and is typically yellow or pale in color. Corn can be cooked in various ways, such as boiling, grilling, or roasting, and it's used in a wide range of dishes, from cornbread and tortillas to popcorn and as a source of livestock feed.</p>
+                </div>
+                <div>
+                    <div class="menu__items center">CHEESE STICKS<span class="menu__price">$6</span></div>
+                    <p class="center">Beer-battered onion rings are a popular appetizer or side dish made by dipping onion rings in a batter that includes beer. This batter is typically seasoned and creates a light, crispy coating when deep-fried. The use of beer in the batter can impart a slightly tangy flavor and contributes to the rings' distinctive texture. They are often served with dipping sauces like ketchup, mayonnaise, or a spicy aioli.
+                    </p>
+                </div>
+                <div>
+                    <div class="menu__items center">BEER BATTERED ONION RINGS<span class="menu__price">$6</span></div>
+                    <p class="center">Fries, short for "French fries," are a beloved and popular side dish made from potatoes. They are typically cut into elongated strips, deep-fried until they are golden and crispy, and then seasoned with salt. Fries are often served as a side dish at restaurants and fast-food establishments and are a favorite snack or accompaniment to various dishes. They can be enjoyed with ketchup, mayonnaise, or other condiments, and variations include curly fries, waffle fries, and sweet potato fries.</p>
+                </div>
+                <div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer dark maxwidth">
+        <p>Mon-Sat 11-9</p>
+        <p><a href="tel:09024071583">09024071583</a></p>
+        <p>&copy; <span id="year">The Paramount Bar</span></p>
+        <p class="center">📍 <a href="https://maps.app.goo.gl/j7nQTb7SvuSbZqit6">219 Road Odonguyan Ikorodu <br>Ikeja Lagos</a></p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded",() =>{
+    initApp();
+});
+
+const initApp = () =>{
+    const menubtn = document.querySelector(".nav__buger-btn");
+    const list = document.querySelector(".nav__list");
+    menubtn.addEventListener("click",toggleButtonAndMenu);
+    list.addEventListener("click",toggleButtonAndMenu);
+    displayYear();
+};
+
+const toggleButtonAndMenu = () => {
+    const menubtn = document.querySelector(".nav__buger-btn");
+    const list = document.querySelector(".nav__list");
+    menubtn.classList.toggle("open");
+    list.classList.toggle("open");
+};
+
+const displayYear = () => {
+    const year = new Date().getFullYear();
+    document.getElementById("year").textContent = year
+
+};
+    </script>
+</body>
+</html>

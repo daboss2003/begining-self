@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-APP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/project-folder/istockphoto-1480176769-1024x1024.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background: url(trnava-university-BEEyeib-am8-unsplash.jpg) no-repeat center center/ cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-task-container{
+    width: 350px;
+    padding: 20px 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 3px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+input{
+    flex: 5;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 5px;
+
+}
+
+#add-task{
+    font-size: 1.2rem;
+    padding: 5px;
+    transition: .3s;
+    flex: 1;
+    background-color: whitesmoke;
+    color: green;
+    border: 2px solid green;
+    border-radius: 10px;
+
+}
+#add-task:hover{
+    background-color: green;
+    color: whitesmoke;
+}
+
+.task{
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 3px;
+
+    padding: 5px;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.task li{
+    list-style-type: none;
+    flex: 4;
+    padding: 5px;
+    font-size: 1.3rem;
+    margin: 10px;
+}
+
+.task button{
+    flex: 1;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.task .checkTask {
+    color: orange;
+    margin-right: 5px;
+    border: 2px solid orange;
+    font-size: 1.5rem;
+}
+
+.task .checkTask:hover{
+    background-color: orange;
+    color: whitesmoke;
+}
+
+
+.task .deleteTask {
+    color: red;
+    margin-right: 5px;
+    border: 2px solid red;
+    font-size: 1.3rem;
+}
+
+.task .deleteTask:hover{
+    background-color: red;
+    color: whitesmoke;
+}
+
+
+    </style>
+    <div class="container">
+
+        <div id="add-task-container">
+            <input type="text" placeholder="Enter Task" id="input-task">
+             <button id="add-task"><i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <div id="task-container"></div>
+
+
+    </div>
+    <script>
+        const button = document.getElementById('add-task');
+const taskContainer = document.getElementById('task-container');
+const inputTask = document.getElementById('input-task');
+
+
+button.addEventListener('click',function(){
+
+    let task = document.createElement('div');
+    task.classList.add('task');
+
+    let li = document.createElement('li');
+    li.innerText = `${inputTask.value}`;
+    task.appendChild(li);
+
+    const checkbtn = document.createElement('button');
+    checkbtn.innerHTML = `<i class="fa-solid fa-check"></i>`;
+    checkbtn.classList.add('checkTask');
+    task.appendChild(checkbtn);
+
+    const deletebtn = document.createElement('button');
+    deletebtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+    deletebtn.classList.add('deleteTask');
+    task.appendChild(deletebtn);
+
+    if(inputTask.value === ""){
+        alert("Please Enter a task");
+    }else{
+        taskContainer.appendChild(task);
+    }
+
+
+    inputTask.value = "";
+
+    checkbtn.addEventListener('click',function(){
+
+        checkbtn.parentElement.style.textDecoration = 'line-through';
+    });
+
+    deletebtn.addEventListener('click',function(e){
+        let target = e.target;
+
+        target.parentElement.parentElement.remove();
+    })
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            font-size: 16px;
+        }
+
+        body{
+            min-height: 100vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(21, 22, 22);
+            padding: 1rem;
+        }
+
+        h1{
+            margin: 10px;
+            color: whitesmoke;
+            text-align: center;
+        }
+        
+        main{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        article{
+            width: 300px;
+            margin: 20px 10px 0;
+             border: 1px solid black;
+             border-radius: 10px;
+             box-shadow: 5px 5px 10px black;
+             position: relative;
+             background-color: whitesmoke;
+             min-height: 100px;
+        }
+
+        img{
+            display: block;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .detailes{
+            padding :10px;
+            
+        }
+
+
+        .likes{
+            width: 28px;
+            height: 48px;
+
+
+        }
+
+        
+
+        .like-no{
+            color: blue;
+        }
+
+        .like-yes{
+            color: red;
+        }
+    </style>
+    <header>
+        <h1>Contacts</h1>
+    </header>
+    <main>
+        
+    </main>
+    <script>
+    const initApp = async () =>  {
+        const contact = await getDataFromDB();
+        renderContact(contact);
+        listtenForLLike();
+    }
+    
+    document.addEventListener("DOMContentLoaded", initApp);
+    
+    const getDataFromDB = async () =>{
+        const fakedatastream = await fetch("https://randomuser.me/api/?results=5000");
+        const jsonData = await fakedatastream.json();
+        console.log(jsonData)
+        return jsonData.results;
+
+    };
+    
+    const renderContact = (contacts) =>{
+        const main = document.querySelector("main");
+        const cardArray =  [];
+    
+        contacts.forEach(  contact => {
+            const elementObj = creatCardElement();
+            const card = creatPersonCard(elementObj, contact);
+            cardArray.push(card);
+        });
+    
+        cardArray.forEach((card) => {
+            main.appendChild(card)
+        });
+    };
+    
+    
+    const creatCardElement = ()=>{
+        const article = document.createElement("article");
+        const img = document.createElement("img");
+        const detailes = document.createElement("div");
+        const like = document.createElement("div");
+        const name = document.createElement("h2");
+        const email = document.createElement("p");
+        return {article,img,detailes,like,name,email};
+        
+    };
+    
+    const creatPersonCard = (elementObj,person) =>{
+        const {article,img,detailes,like,name,email} = elementObj;
+    
+         detailes.className = "details";
+         like.classList.add("like", 'like-no');
+         like.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+        </svg>`;
+            
+         name.textContent = `${person.name.title} ${person.name.first} ${person.name.last}`;
+         img.src = person.picture.medium;
+         email.textContent = person.email;
+    
+         article.appendChild(img);
+         detailes.appendChild(name);
+         detailes.appendChild(email);
+         article.appendChild(detailes);
+         article.appendChild(like);
+         return article;
+    }
+    
+    const listtenForLLike =() => {
+        window.addEventListener("click",(event) =>{
+            if(event.target.closest('.like')){
+                event.target.closest('.like').classList.toggle("like-yes");
+                if (event.target.closest('.like').classList.contains("like-yes")) {
+                    console.log("adding favourites.......");
+                    getfavedata(event.target.closest('.like'));
+
+                } else {
+                    console.log("removeing favourites....");
+                    getfavedata(event.target.closest('.like'));
+                }
+            }
+        })
+    }
+    
+    const getfavedata = (elem)=>{
+        const parent = elem.parentNode;
+        const img = parent.querySelector("img").src;
+        const name = parent.querySelector("h2").textContent;
+        const email= parent.querySelector("p").textContent;
+        const {firstName,lastName} = name.split(" ")
+        const faveobj = {img, firstName, lastName, email};
+    
+    }
+    </script>
+</body>
+</html>

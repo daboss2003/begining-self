@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Ilorin",
+			"country": {
+				"code": "NG",
+				"name": "Nigeria"
+			},
+			"subdivision": {
+				"code": "KW",
+				"name": "Kwara State"
+			},
+			"timezone": "Africa/Lagos",
+			"latitude": 8.4929,
+			"longitude": 4.5642
+		},
+		"timestamp": 1714406294055
+	}
+}

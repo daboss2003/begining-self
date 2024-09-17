@@ -1,0 +1,10 @@
+$primary: rgb(181, 243, 23);
+$light:#ecf5c6;
+
+
+$custom-theme:(
+    "bright":#f5f5f5da,
+    "bdark":#0044ff
+)
+
+@import '../node_modules/bootstrap/scss/bootstrap';

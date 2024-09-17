@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/Easy Ground Beef Tacos.png" type="image/x-icon">
+    <title>Animated webpge</title>
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --HEADER-BGCOLOR:black;
+    --HEADER-COLOR:whitesmoke;
+}
+html{
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    background-image: linear-gradient(to right, midnightblue,rebeccapurple);
+    flex-flow: column nowrap;
+    background-color: midnightblue;
+}
+
+header{
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR );
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header-title-line{
+    padding: 0.25rem 0.25rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.menu-button{
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.closemenubtn{
+    display: none;
+    background-color: transparent;
+    outline: none;
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    width: 48px;
+    height: 48px;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after{
+    background-color: var(--HEADER-COLOR);
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.menu-icon::before,
+.menu-icon::after{
+    content: "";
+}
+
+.menu-icon::before{
+    transform: translate(-20px, -12px);
+}
+
+.menu-icon::after{
+    transform: translate(-20px, 12px);
+}
+.header-title-line:focus-within .menu-icon{
+    background-color: transparent;
+    transform: rotate(720deg);
+    
+}
+
+.header-title-line:focus-within .menu-icon::before{
+    transform: translateX(-20px) rotate(45deg) ;
+    
+}
+
+.header-title-line:focus-within .menu-icon::after{
+    transform: translateX(-20px) rotate(-45deg) ;
+    
+}
+
+
+nav{
+    display: none;
+    position: relative;
+   
+}
+
+
+header:focus-within nav{
+    display: block;
+    transform-origin: top center;
+    animation: showmenu 0.5s ease-in-out forwards;
+}
+
+header:focus-within .closemenubtn{
+    display: block;
+
+}
+
+header:focus-within .closemenubtn:focus{
+   transform: translateX(-50px);
+}
+
+
+@keyframes showmenu{
+    0%{
+        transform: scaleY(0);
+    }
+    80%{
+        transform: scaleY(1.2);
+    }
+    100%{
+        transform: scaleY(1);
+    }
+}
+
+.closemenubtn:focus+nav{
+    transform-origin: top center;
+    animation: hidemenu 0.5s ease forwards;
+}
+
+
+@keyframes hidemenu{
+    0%{
+        transform: scaleY(1);
+    }
+    80%{
+        transform: scaleY(1.2);
+    }
+    100%{
+        transform: scaleY(0);
+    }
+}
+nav ul {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: var(--HEADER-BGCOLOR);
+
+
+}
+
+nav li{
+    padding: 0.5rem;
+    border-top: 1px solid var(--HEADER-COLOR);
+}
+
+nav a {
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+nav a:any-link{
+    color: var(--HEADER-COLOR);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus{
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+main{
+    flex-grow: 1;
+    display: grid;
+    place-content: center;
+    min-height: 200vh;
+}
+
+
+    </style>
+   <header>
+    <section class="header-title-line">
+        <h1>Da-boss.Co</h1>
+        <button class="menu-button" title="open-nav-menu">
+            <div class="menu-icon"></div>
+        </button>
+    </section>
+
+     <button class="closemenubtn" title="close-nav-menu" tabindex="-1"></button>
+
+    <nav>
+        <ul>
+           <li><a href="product.html">Products</a></li>
+           <li><a href="#">Forum</a></li>
+           <li><a href="#">About</a></li>
+           <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+   </header>
+   <main>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam commodi quod praesentium ipsa libero doloribus nihil error aliquid, perspiciatis quidem dolores officiis quam laborum maiores? Accusamus incidunt aliquam culpa minus.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat commodi ratione ipsam molestias facilis. Provident non voluptatem tempore, fuga, sint illum quos reprehenderit eius earum et illo officia quaerat quae.
+        Est dolores voluptas repellat odio suscipit? Cum reiciendis consectetur repellat vel ratione, dicta provident deleniti ducimus modi? Repellendus molestiae natus labore! A veniam ipsum eius tempora in. Nostrum, alias nihil.
+        Rerum sapiente ullam animi, facere culpa omnis? Illum sed dicta hic, perspiciatis eos, obcaecati aliquid asperiores nesciunt magnam esse a velit quae veniam? Fugit provident voluptates quam nobis maiores adipisci!
+        
+    </p>
+   </main> 
+</body>
+</html>
